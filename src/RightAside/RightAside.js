@@ -4,7 +4,7 @@ import "./RightAside.css";
 export function RightAside(props) {
     return(
         <div className={"RightAside"}>
-            <h1>RightAside</h1>
+            <h1>News</h1>
         </div>
     )
 }

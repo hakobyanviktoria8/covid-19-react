@@ -6,7 +6,6 @@ import {Graph} from "./Graph/Graph";
 export function LeftAside(props) {
     return(
         <div className={"LeftAside"}>
-            <h1>LeftAside</h1>
             <Table/>
             <Graph/>
         </div>

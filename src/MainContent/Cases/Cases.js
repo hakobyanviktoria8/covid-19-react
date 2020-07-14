@@ -6,16 +6,16 @@ export function Cases(props) {
     return(
         <Container>
             <Row className={"Cases"}>
-                <Col className={"CasesTotal p-1"} xs="3" sm="3" md="3" lg="3" xl="3">
+                <Col className={"p-1"} xs="3" sm="3" md="3" lg="3" xl="3">
                     <div className={"CasesDiv"}>1</div>
                 </Col>
-                <Col className={"CasesTotal p-1"} xs="3" sm="3" md="3" lg="3" xl="3">
+                <Col className={"p-1"} xs="3" sm="3" md="3" lg="3" xl="3">
                     <div className={"CasesDiv"}>1</div>
                 </Col>
-                <Col className={"CasesTotal p-1"} xs="3" sm="3" md="3" lg="3" xl="3">
+                <Col className={"p-1"} xs="3" sm="3" md="3" lg="3" xl="3">
                     <div className={"CasesDiv"}>1</div>
                 </Col>
-                <Col className={"CasesTotal p-1"} xs="3" sm="3" md="3" lg="3" xl="3">
+                <Col className={"p-1"} xs="3" sm="3" md="3" lg="3" xl="3">
                     <div className={"CasesDiv"}>1</div>
                 </Col>
             </Row>

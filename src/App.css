@@ -4,12 +4,44 @@
 .col-sm-10{
   margin: 0 auto !important;
 }
+h1{
+  color: gray;
+}
+.selectItem{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  outline: none;
+}
+.MuiOutlinedInput-input{
+  padding: 6px !important;
+  border-radius: 10px;
+}
 .headerOption{
   display: flex;
   flex: 1 1;
   width: 100%;
+  border-radius: 5px;
+  padding: 6px;
+  box-shadow: 0 0 10px -4px black;
+  background-color: white;
+  border: none;
 }
 .minHeight{
-  min-height: 89vh;
+  min-height: 88vh;
   padding: 0;
+}
+.subTitle{
+  color: gray;
+  text-align: center;
+}
+@media (max-width:768px) {
+  h1{
+    font-size: 2rem !important;
+  }
+}
+@media (max-width: 425px) {
+  h1{
+    font-size: 1.5rem !important;
+  }
 }

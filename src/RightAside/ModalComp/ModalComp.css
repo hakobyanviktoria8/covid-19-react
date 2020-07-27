@@ -1,0 +1,10 @@
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    padding: 0 7px;
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+}
+.modalFooter .btn:not(:disabled):not(.disabled) {
+    position: inherit;
+}

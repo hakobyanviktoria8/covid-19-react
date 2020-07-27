@@ -5,8 +5,8 @@ import {Map} from "./Map/Map";
 
 export function MainContent(props) {
     return(
-        <div className={"MainContent"}>
-            <Cases/>
+        <div className={"MainContent px-1"}>
+            <Cases country={props.country}/>
             <Map/>
         </div>
     )

@@ -1,0 +1,11 @@
+.tableDiv {
+    height: 40vh;
+    overflow: auto;
+}
+.tableFlag{
+    width: 75%;
+    height: 25px;
+}
+.table-striped tbody tr:nth-of-type(odd){
+    background-color: #f7effc !important;
+}

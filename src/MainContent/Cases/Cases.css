@@ -5,6 +5,36 @@
     box-shadow: 0 0 10px -4px black;
     background-color: white;
     border-radius: 15px;
-    padding: 15px;
+    padding: 10px;
     height: 100%;
+    color: gray;
+}
+.CasesDiv small{
+    float: right;
+}
+.CasesNumber{
+    color: pink;
+}
+.RecoveredNumber{
+    color: #17c51e;
+}
+.ActiveNumber{
+    color: #e00b0f;
+}
+.DeathsNumber{
+    color: gray;
+}
+.numSize{
+    font-size: 2vw;
+    margin: 0;
+}
+@media (max-width:768px) {
+    .numSize{
+        font-size: 2.5vw;
+    }
+}
+@media (max-width:425px) {
+    .numSize{
+        font-size: 4vw;
+    }
 }

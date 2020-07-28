@@ -5,12 +5,35 @@ import { Line } from "react-chartjs-2";
 export function Graph(props) {
     //https://corona.lmao.ninja/v2/historical/all?lastdays=120
     const [data, setData] = useState({});
+
+    const chartDataFunc = (data) => {
+        const chartData = [];
+        let lastData;
+
+        data.cases.forEach(date => {
+            if (lastData){
+                const  newDataPoint = {
+                    x: date,
+                    y: data['cases'][date] - lastData
+                };
+                chartData.push(newDataPoint)
+            }
+            lastData = data['cases'][date]
+        });
+        return chartData;
+    };
+
     useEffect(()=>{
         fetch("https://corona.lmao.ninja/v2/historical/all?lastdays=120")
             .then(response => response.json())
-            .then(response=> {console.log(response)})
+            .then(data=> {
+                setData(chartDataFunc(data));
+                console.log(data)
+            })
     });
 
+
+    // chartDataFunc(data);
     return(
         <div className={"Graph"}>
             <h1>Graph</h1>

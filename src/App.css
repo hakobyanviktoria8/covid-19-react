@@ -5,7 +5,7 @@
   margin: 0 auto !important;
 }
 h1{
-  color: gray;
+  color: #33468b;
 }
 .selectItem{
   margin: 0;
@@ -28,11 +28,11 @@ h1{
   border: none;
 }
 .minHeight{
-  min-height: 88vh;
+  height: 89vh;
   padding: 0;
 }
 .subTitle{
-  color: gray;
+  color: #617bc1;
   text-align: center;
 }
 @media (max-width:768px) {

@@ -1,125 +1,97 @@
 import React,{ useState, useEffect } from "react";
 import "./Graph.css";
 import { Line } from "react-chartjs-2";
+import numeral from "numeral";
 
-export function Graph(props) {
-    //https://corona.lmao.ninja/v2/historical/all?lastdays=120
+const options = {
+    legend:{
+        display:false
+    },
+    elements:{
+        point: {
+            radius: 0,
+        }
+    },
+    maintainAspectRatio: false,
+    tooltips:{
+        mode: 'index',
+        intersect: false,
+        callbacks:{
+            label: function (tooltinItem, data) {
+                return numeral(tooltinItem.value).format("+0,0")
+            }
+        }
+    },
+    scales:     {
+        xAxes: [{
+            type: "time",
+            time: {
+                format: "MM/DD/YY",
+                tooltipFormat: 'll'
+            }
+        }],
+        yAxes: [{
+            gridLines: {
+                display:false
+            },
+            ticks: {
+                callback: function(value, index, values) {
+                    return numeral(value).format('0a');
+                }
+            }
+        }]
+    }
+};
+
+const chartDataFunc = (data, casesType) => {
+    const chartData = [];
+    let lastData;
+    for(let date in data.cases) {
+        if (lastData){
+            const  newDataPoint = {
+                x: date,
+                y: data[casesType][date] - lastData
+            };
+            chartData.push(newDataPoint)
+        }
+        lastData = data[casesType][date]
+    }
+    return chartData;
+};
+
+export function GraphComp({casesType = "cases"}) {
     const [data, setData] = useState({});
 
-    const chartDataFunc = (data) => {
-        const chartData = [];
-        let lastData;
-
-        data.cases.forEach(date => {
-            if (lastData){
-                const  newDataPoint = {
-                    x: date,
-                    y: data['cases'][date] - lastData
-                };
-                chartData.push(newDataPoint)
-            }
-            lastData = data['cases'][date]
-        });
-        return chartData;
-    };
-
     useEffect(()=>{
-        fetch("https://corona.lmao.ninja/v2/historical/all?lastdays=120")
-            .then(response => response.json())
-            .then(data=> {
-                setData(chartDataFunc(data));
-                console.log(data)
-            })
-    });
+        const graphFunc = async()=>{
+            await fetch("https://corona.lmao.ninja/v2/historical/all?lastdays=120")
+                .then(response => response.json())
+                .then(data=> {
+                    console.log(data);
+                    setData(chartDataFunc(data,"cases"));
+                })
+        };
+        graphFunc();
+    },[casesType]);
 
-
-    // chartDataFunc(data);
     return(
         <div className={"Graph"}>
-            <h1>Graph</h1>
-            {/*{*/}
-                {/*fetch("https://corona.lmao.ninja/v2/historical/all?lastdays=120")*/}
-                    {/*.then((response)=> response.json())*/}
-                    {/*.then((data)=>{*/}
-                {/*let chartData = buildChartData(data);*/}
-                {/*buildChart(chartData);*/}
-                {/*})*/}
-            {/*}*/}
+            {
+                data?.length > 0 && (
+                    <Line
+                        data={{
+                            datasets:[
+                                {
+                                    data: data,
+                                    backgroundColor: "#e8f7ff",
+                                    borderColor:"#6d89d0"
+                                }
+                            ]
+                        }}
+                        options={options}
+                    />
+                )
+            }
         </div>
     )
 }
-
-// const buildChartData = (data) => {
-//     let chartData = [];
-//     let lastDataPoint;
-//     for(let date in data.cases){
-//         if(lastDataPoint){
-//             let newDataPoint = {
-//                 x: date,
-//                 y: data.cases[date] - lastDataPoint
-//             };
-//             chartData.push(newDataPoint);
-//         }
-//         lastDataPoint = data.cases[date];
-//     }
-//     return chartData;
-// };
-// const buildChart = (chartData) => {
-//     let timeFormat = 'MM/DD/YY';
-//     let ctx = document.getElementById('myChart').getContext('2d');
-//     let chart = new Chart(ctx, {
-//         // The type of chart we want to create
-//         type: 'line',
-//
-//         // The data for our dataset
-//         data: {
-//             datasets: [{
-//                 backgroundColor: 'rgba(204, 16, 52, 0.5)',
-//                 borderColor: '#CC1034',
-//                 data: chartData
-//             }]
-//         },
-//
-//         // Configuration options go here
-//         options: {
-//             legend: {
-//                 display: false
-//             },
-//             elements: {
-//                 point:{
-//                     radius: 0
-//                 }
-//             },
-//             maintainAspectRatio: false,
-//             tooltips: {
-//                 mode: 'index',
-//                 intersect: false,
-//                 callbacks: {
-//                     label: function(tooltipItem, data) {
-//                         return numeral(tooltipItem.value).format('+0,0');
-//                     }
-//                 }
-//             },
-//             scales:     {
-//                 xAxes: [{
-//                     type: "time",
-//                     time: {
-//                         format: timeFormat,
-//                         tooltipFormat: 'll'
-//                     }
-//                 }],
-//                 yAxes: [{
-//                     gridLines: {
-//                         display:false
-//                     },
-//                     ticks: {
-//                         // Include a dollar sign in the ticks
-//                         callback: function(value, index, values) {
-//                             return numeral(value).format('0a');
-//                         }
-//                     }
-//                 }]
-//             }
-//         }
-//     });
-// };

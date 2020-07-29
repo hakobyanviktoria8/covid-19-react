@@ -27,7 +27,7 @@ export function RightAside(props) {
                         news.map((item,idx) =>
                             <Col className={"cart p-2"} key={idx} xs="12" sm="12" md="6" lg="4" xl="12">
                                 <div className={"divCart"}>
-                                    <h6 className={"subTitle"}><b>{item.title.length>50 ? item.title.slice(0,50) : item.title} </b></h6>
+                                    <h6><b>{item.title.length>50 ? item.title.slice(0,50) : item.title} </b></h6>
                                     <img src={item.urlToImage} alt=""/>
                                     <p className={"mt-2 mb-0"}>By {item.source.name} {item.publishedAt.slice(0,10)}</p>
                                     <small>{item.author}</small>

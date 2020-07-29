@@ -1,7 +1,7 @@
 import React from "react";
 import "./LeftAside.css";
 import {TableComp} from "./Table/Table";
-import {Graph} from "./Graph/Graph";
+import {GraphComp} from "./Graph/Graph";
 
 export function LeftAside(props) {
     return(
@@ -9,7 +9,7 @@ export function LeftAside(props) {
             <h4 className={"subTitle"}>Total Cases by Country</h4>
             <TableComp/>
             <h4 className={"subTitle"}>Total Cases by Graph</h4>
-            <Graph/>
+            <GraphComp />
         </div>
     )
 }

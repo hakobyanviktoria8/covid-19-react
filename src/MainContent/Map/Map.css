@@ -1,13 +1,24 @@
-.Map{
-    height: 73vh;
-}
-.MapDiv{
-    height: 100%;
+.MapComp{
+    height: 72vh;
     box-shadow: 0 0 10px -4px black;
     background-color: white;
     border-radius: 15px;
-    padding: 15px;
+    margin-top: -10px;
+}
+.MapDiv h4{
+    padding: 0;
+    margin: 0;
 }
 .dataUpdate{
     float: right;
+}
+.MapComp-Map{
+    height: 100%;
+   padding: 0 20px 20px 20px;
+}
+.map .leaflet-container{
+    height: 465px;
+    margin-top: 5px;
+    border-radius: 15px;
+    padding: 10px;
 }

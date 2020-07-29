@@ -5,6 +5,7 @@ import {LeftAside} from "./LeftAside/LeftAside";
 import {RightAside} from "./RightAside/RightAside";
 import {MainContent} from "./MainContent/MainContent";
 import { FormControl, Select, MenuItem } from '@material-ui/core';
+import "leaflet/dist/leaflet.css";
 
 function App() {
     const [countries,setCountries] = useState([]);

@@ -5,6 +5,9 @@
     border-radius: 15px;
     padding: 15px;
 }
+.RightAside h6{
+    color: #5b6169;
+}
 .RightAside .row{
     margin-right: 0;
     margin-left: 0;

@@ -1,5 +1,6 @@
 .Cases{
-    height: 14vh;
+    height: 20%;
+    margin-top: -10px;
 }
 .CasesDiv{
     box-shadow: 0 0 10px -4px black;
@@ -13,7 +14,7 @@
     float: right;
 }
 .CasesNumber{
-    color: pink;
+    color: #617bc1;
 }
 .RecoveredNumber{
     color: #17c51e;

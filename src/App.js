@@ -13,8 +13,8 @@ function App() {
 
     useEffect(()=>{
         const getCountries = async()=>{
-            // await fetch("https://disease.sh/v3/covid-19/countries/")
-            await fetch("https://corona.lmao.ninja/v2/countries")
+            await fetch("https://disease.sh/v3/covid-19/countries/")
+            // await fetch("https://corona.lmao.ninja/v2/countries")
                 .then(response => response.json())
                 .then(response => {
                         setCountries(response)
@@ -57,7 +57,7 @@ function App() {
               </Col>
               {/*Main Content*/}
               <Col className={"border1 minHeight px-1"} xs="12" sm="10" md="7" lg="8" xl="6">
-                  <MainContent country={country}/>
+                  <MainContent countries={countries} country={country}/>
               </Col>
               {/*Right Aside*/}
               <Col className={"border1 minHeight"} xs="12" sm="10" md="10" lg="10" xl="3">

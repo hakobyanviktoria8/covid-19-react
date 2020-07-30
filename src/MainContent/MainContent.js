@@ -7,9 +7,10 @@ import { Row, Col } from 'reactstrap';
 export function MainContent(props) {
     const [data,setData] = useState([]);
     const [active,setActive] = useState(0);
-    const [mapCenter, setMapCenter] = useState({lat:34.80746, lng: -40.4796});
-    const [mapZoom, setMapZoom] = useState(2);
-    const [mapCountries, setMapCountries] = useState([]);
+    const [mapCenter, setMapCenter] = useState({lat: 20, lng: 0});
+    const [mapZoom, setMapZoom] = useState(1.5);
+    // const [mapCountries, setMapCountries] = useState([]);
+    // const [casesType,setCasesType] = useState("cases");_______________________________________
 
     const url = props.country === "selectCountry"
         ? "https://disease.sh/v3/covid-19/all"
@@ -32,12 +33,12 @@ export function MainContent(props) {
                 .then(response => response.json())
                 .then(response => {
                         setData(response);
+                        // setMapCountries(response);
                         setActive(response.todayCases - response.todayRecovered - response.todayDeaths < 0 ? 0
                             : response.todayCases - response.todayRecovered - response.todayDeaths);
                         // console.log(response);
                         setMapCenter([response.countryInfo.lat, response.countryInfo.long]);
                         setMapZoom(4);
-                        setMapCountries(response);
                     }
                 )
                 .catch(() => console.log("Can’t access " + url + " response."))
@@ -46,17 +47,18 @@ export function MainContent(props) {
     },[props.country]);
 
     // console.log(data);
+    // console.log(mapCountries);
 
     return(
         <div className={"MainContent px-1"}>
             <Row>
                 <Col className={"p-2 borderMin"} xs="12" sm="12" md="12" lg="12" xl="12">
-                    <Cases country={props.country} data={data} active={active}/>
+                    <Cases casesType={casesType} country={props.country} data={data} active={active}/>
                 </Col>
             </Row>
             <Row>
                 <Col className={"p-2 borderMin"} xs="12" sm="12" md="12" lg="12" xl="12">
-                    <Map countries={mapCountries} center={mapCenter} zoom={mapZoom}/>
+                    <Map casesType={casesType} countries={props.countries} center={mapCenter} zoom={mapZoom}/>
                 </Col>
             </Row>
         </div>

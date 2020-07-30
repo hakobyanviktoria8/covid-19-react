@@ -1,6 +1,6 @@
 .MapComp{
     height: 72vh;
-    box-shadow: 0 0 10px -4px black;
+    box-shadow: 0 0 10px -4px #9FA5AD;
     background-color: white;
     border-radius: 15px;
     margin-top: -10px;
@@ -21,4 +21,44 @@
     margin-top: 5px;
     border-radius: 15px;
     padding: 10px;
+}
+/*Show popup*/
+.showPopup{
+    width: 130px;
+    min-height: 180px;
+}
+.showPopup img{
+    width: 120px;
+    height: 60px;
+    margin: 5px;
+    box-shadow: 0 0 3px #e5e7eb;
+    padding: 0;
+    border-radius: 5px;
+}
+.showPopup h4{
+    text-align: center;
+    color: gray;
+}
+.showPopup .cases{
+    color: #748fdc;
+    float: right;
+}
+.showPopup .recovered{
+    color: #17c51e;
+    float: right;
+}
+.showPopup .active{
+    color: #e00b0f;
+    float: right;
+}
+.showPopup .deaths{
+    color: gray;
+    float: right;
+}
+.showPopup p{
+    font-size: 13px;
+    margin: 0 !important;
+}
+.leaflet-popup-content{
+    margin: 15px !important;
 }

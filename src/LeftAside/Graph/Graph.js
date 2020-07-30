@@ -67,7 +67,7 @@ export function GraphComp({casesType = "cases"}) {
             await fetch("https://corona.lmao.ninja/v2/historical/all?lastdays=120")
                 .then(response => response.json())
                 .then(data=> {
-                    console.log(data);
+                    // console.log(data);
                     setData(chartDataFunc(data,"cases"));
                 })
         };

@@ -31,6 +31,7 @@ function App() {
               <Col className={"border1 pl-3 p-2"} xs="12" sm="12" md="8" lg="8" xl="8">
                   <h1>COVID-19 Dashboard by the CSSE</h1>
               </Col>
+              {/*select Country whit material-ui*/}
               <Col xs="12" sm="10" md="4" lg="4" xl="4">
                   <FormControl className="selectItem">
                       <Select

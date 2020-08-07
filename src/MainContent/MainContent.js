@@ -10,7 +10,7 @@ export function MainContent(props) {
     const [mapCenter, setMapCenter] = useState({lat: 20, lng: 0});
     const [mapZoom, setMapZoom] = useState(1.5);
     // const [mapCountries, setMapCountries] = useState([]);
-    // const [casesType,setCasesType] = useState("cases");_______________________________________
+    const [casesType,setCasesType] = useState("cases");//_______________________________________
 
     const url = props.country === "selectCountry"
         ? "https://disease.sh/v3/covid-19/all"

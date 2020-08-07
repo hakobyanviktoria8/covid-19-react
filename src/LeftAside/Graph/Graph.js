@@ -58,6 +58,7 @@ const chartDataFunc = (data, casesType) => {
     }
     return chartData;
 };
+//use chartjs to make graph
 
 export function GraphComp({casesType = "cases"}) {
     const [data, setData] = useState({});

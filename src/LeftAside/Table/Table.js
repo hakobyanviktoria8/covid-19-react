@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Table.css";
 import { Table } from 'reactstrap';
 import {sorted} from "../../sorted";
+import numeral from "numeral";
 
 export function TableComp(props) {
     const [countries,setCountries] = useState([]);
@@ -35,13 +36,12 @@ export function TableComp(props) {
                                <img className={"tableFlag"} src={item.countryInfo.flag} alt=""/>
                            </td>
                            <td className={"p-1"}>{item.country}</td>
-                           <td className={"p-1"}>{item.cases}</td>
+                           <td className={"p-1"}>{numeral(item.cases).format("0,0")}</td>
                        </tr>
                    )
                }
                </tbody>
            </Table>
-
        </div>
     )
 }

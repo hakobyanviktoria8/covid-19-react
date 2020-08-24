@@ -31,7 +31,7 @@ export const showCircle = (data, casesType ="cases") =>(
                     fillColor={dataColor[casesType].hex}
                     radius = {Math.sqrt(country[casesType]) * dataColor[casesType].multiplier}
             >
-                {console.log(data)}
+              {/*{console.log(data)}*/}
                 <Popup>
                     <div className={"showPopup"}>
                         <div><img src={country.countryInfo.flag} alt=""/></div>

@@ -5,14 +5,26 @@ import ModalComp from "./ModalComp/ModalComp";
 
 export function RightAside(props) {
     const [news,setNews] = useState([]);
-
     useEffect(()=>{
-        fetch("http://newsapi.org/v2/everything?q=covid-19&apiKey=ecc35603d76b4d2bad4b5ee335b6ff80")
-            .then(response => response.json())
-            .then(response => {
-                setNews(response.articles);
-            })
+        const totalNews = async()=>{
+            await fetch("http://newsapi.org/v2/everything?q=covid-19&apiKey=ecc35603d76b4d2bad4b5ee335b6ff80")
+                .then(response => response.json())
+                .then(response => {
+                    setNews(response.articles)
+                    }
+                )
+                .catch(() => console.log("Can’t access  response."))
+        };
+        totalNews();
     },[]);
+
+    // useEffect(()=>{
+    //     fetch("http://newsapi.org/v2/everything?q=covid-19&apiKey=ecc35603d76b4d2bad4b5ee335b6ff80")
+    //         .then(response => response.json())
+    //         .then(response => {
+    //             setNews(response.articles);
+    //         })
+    // },[]);
 
     return(
         <Container className={"RightAside"}>

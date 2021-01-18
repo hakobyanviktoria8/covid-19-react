@@ -9,7 +9,7 @@ import {Circle, Popup} from "react-leaflet";
 const dataColor = {
     cases:{
         hex: "#748fdc",
-        multiplier:700,
+        multiplier:250,
     },
     recovered:{
         hex: "#23cc37",
@@ -58,7 +58,7 @@ export function Map({ countries, casesType, center, zoom}) {
                             <h4 className={"subTitle text-left"}>Map</h4>
                         </Col>
                         <Col className={"dataUpdate"} xs="5" sm="5" md="5" lg="5" xl="5">
-                            <div>Last Updated April 09, 2020</div>
+                            <div className={"text-right"}>Last Updated April 09, 2020</div>
                         </Col>
                     </Row>
                     <Row>
